@@ -8,10 +8,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './core/auth.guard';
 import { BlockChainComponent } from './block-chain/block-chain.component';
+import { ProductsComponent } from './products/products.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
-    path: '', component: LoginComponent
+    path: '', component: ProductsComponent
   },{
     path: 'login', component: LoginComponent
   },{

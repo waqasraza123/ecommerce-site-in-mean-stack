@@ -15,13 +15,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'dist')));
 // app.use('/product', express.static(path.join(__dirname, 'dist')));
-app.use('/product', product);
+app.use('/api/product', product);
 // app.use('/category', express.static(path.join(__dirname, 'dist')));
-app.use('/category', category);
+app.use('/api/category', category);
 // app.use('/user', express.static(path.join(__dirname, 'dist')));
-app.use('/user', user);
+app.use('/api/user', user);
 // app.use('/cart', express.static(path.join(__dirname, 'dist')));
-app.use('/cart', cart);
+app.use('/api/cart', cart);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

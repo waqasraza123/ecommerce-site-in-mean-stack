@@ -2,8 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { DataService } from './data.service';
 import { SearchService } from './search.service';
+import { ProductService } from './product.service';
 import { CryptoCurrencyDataService } from './crypto-currency-data.service';
 import { AppRoutingModule } from './app-routing.module';
+import { Routes, RouterModule } from '@angular/router';
+import { routes } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -68,9 +71,11 @@ var firebaseConfig = {
     HttpModule,
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),  
-    AngularFirestoreModule                            
+    AngularFirestoreModule,
+    RouterModule.forRoot(routes)
+
   ],
-  providers: [DataService,SearchService,CryptoCurrencyDataService],
+  providers: [DataService,SearchService,CryptoCurrencyDataService,ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

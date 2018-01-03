@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
+// import { DataService } from '../data.service';
+// import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +9,12 @@ import { DataService } from '../data.service';
 })
 export class HomeComponent implements OnInit {
 
-  data = [];
-  constructor(private _data: DataService) { }
+  // products = <any>[];
+  constructor() { }
 
   ngOnInit() {
-    this._data.Pdata.subscribe(res => this.data = res);
+    // this._http.get('/api/product/').subscribe( data => this.products=data );
+    // console.log(this.products);
   }
 
 }
