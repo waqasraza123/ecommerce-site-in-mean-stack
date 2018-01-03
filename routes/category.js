@@ -3,39 +3,38 @@ var router = express.Router();
 var models  = require('../models');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  models.product.all().then(product => {
-    res.json(product);
+  models.category.all().then(category => {
+    res.json(category);
   });
 });
 router.post('/create', function(req, res, next) {
   // you can also build, save and access the object with chaining:
-  models.product.build({ p_name: req.p_name, p_des: req.p_dec, p_price: req.p_price, category_id:res.category_id })
+  models.category.build({ cat_name: req.cat_name, cat_image: req.cat_image})
   .save()
-  .then(anotherProduct => {
-    res.send("Product is created");
+  .then(anotherCategory => {
+    res.send("Category is created");
   })
   .catch(error => {
     res.send(error);
   })
 });
-// Find by product id:
+// Find by Category id:
 router.get('/:id', function(req, res, next) {
-  let record = models.product.findById(req.params.id).then((record) => {
+  let record = models.category.findById(req.params.id).then((record) => {
     res.json(record);
   });
 });
-// product deleted by id:
+// Category deleted by id:
 router.delete('/delete/:id', function(req, res, next) {
-  let record = models.product.findById(req.params.id).then((record) => {
+  let record = models.category.findById(req.params.id).then((record) => {
       record.destroy();
   });
 });
-// product updated by id:
+// Category updated by id:
 router.put('/update/:id', function(req, res, next) {
-  models.product.findById(req.params.id).then((post) => {
-    post.p_name=req.p_name;
-    post.p_dec=req.p_dec;
-    post.p_price=req.p_price;
+  models.category.findById(req.params.id).then((post) => {
+    post.cat_name=req.cat_name;
+    post.cat_image=req.cat_image;
   });
 });
 

@@ -5,15 +5,23 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 var product = require('./routes/product');
+var category = require('./routes/category');
+var user = require('./routes/user');
+var cart = require('./routes/cart');
 var app = express();
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'dist')));
-app.use('/products', express.static(path.join(__dirname, 'dist')));
+// app.use('/product', express.static(path.join(__dirname, 'dist')));
 app.use('/product', product);
-
+// app.use('/category', express.static(path.join(__dirname, 'dist')));
+app.use('/category', category);
+// app.use('/user', express.static(path.join(__dirname, 'dist')));
+app.use('/user', user);
+// app.use('/cart', express.static(path.join(__dirname, 'dist')));
+app.use('/cart', cart);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
